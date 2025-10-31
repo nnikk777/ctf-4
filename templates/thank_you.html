@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Спасибо за регистрацию - TechLaunch</title>
+    <style>
+        /* Стили остаются такими же */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .thank-you-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 600px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            color: #27ae60;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        
+        .user-email {
+            background: #f8f9fa;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 1rem 0;
+            font-weight: 600;
+            color: #e74c3c;
+        }
+        
+        .message {
+            margin-bottom: 2rem;
+            color: #7f8c8d;
+            line-height: 1.8;
+        }
+        
+        .tech-info {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: left;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .tech-info h3 {
+            color: #2980b9;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 2rem 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #e74c3c;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="success-icon">✓</div>
+        <h1>Добро пожаловать в бета-тест!</h1>
+        
+        <div class="user-email">{{ email }}</div>
+        <p class="message">Зарегистрирован: {{ signup_time }}</p>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number">{{ total_users + 1247 }}</span>
+                <span class="stat-label">Всего в списке</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">01 2026</span>
+                <span class="stat-label">Запуск</span>
+            </div>
+        </div>
+        
+        <div class="tech-info">
+            <h3>Техническая информация</h3>
+            <p><strong>Статус:</strong> ✅ Email сохранен в системе</p>
+            <p><strong>Метод хранения:</strong> Временный файл (миграция на БД в процессе)</p>
+            <p><strong>Обработка:</strong> Автоматическая запись при каждой проверке статуса</p>
+        </div>
+        
+        <p class="message">
+            Ваш email был записан в нашу временную систему. 
+            <strong>При каждом посещении этой страницы</strong> мы проверяем и обновляем вашу запись.
+        </p>
+        
+        <a href="/" class="btn">Вернуться на главную</a>
+    </div>
+</body>
+</html>

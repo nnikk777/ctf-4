@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechLaunch - Запуск скоро</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+        
+        .waitlist-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        input[type="email"] {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+        }
+        
+        input[type="email"]:focus {
+            outline: none;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            opacity: 0.8;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        .error {
+            background: rgba(255, 255, 255, 0.9);
+            color: #e74c3c;
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="hero-content">
+                <div class="logo">TechLaunch</div>
+                <div class="tagline">Инновации в разработке</div>
+                
+                <h1>Следующее поколение платформы уже в пути</h1>
+                <p class="description">
+                    Мы создаем революционный продукт, который изменит ваш подход к работе. 
+                    Присоединяйтесь к списку ожидания, чтобы получить эксклюзивный доступ 
+                    при запуске и специальные условия для первых пользователей.
+                </p>
+                
+                {% if request.args.get('error') %}
+                <div class="error">
+                    Пожалуйста, введите корректный email адрес
+                </div>
+                {% endif %}
+                
+                <form action="/join-beta" method="POST" class="waitlist-form">
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    <button type="submit" class="btn">
+                        Присоединиться к списку ожидания
+                    </button>
+                </form>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">{{ waiting_list|length + 1247 }}</span>
+                        <span class="stat-label">Участников ожидания</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">01 2026</span>
+                        <span class="stat-label">Планируемый запуск</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            © 2024 TechLaunch. Все права защищены. | 
+            <a href="/privacy" style="color: inherit;">Конфиденциальность</a> | 
+            <a href="/terms" style="color: inherit;">Условия использования</a>
+        </div>
+    </div>
+</body>
+</html>
