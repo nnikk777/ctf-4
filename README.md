@@ -71,7 +71,7 @@ docker run -p 5000:5000 techlaunch-app
 ## 📁 Структура проекта
 
 ```
-techlaunch-vulnerable/
+ctf-4/
 ├── app.py                 # Основное Flask приложение
 ├── templates/
 │   ├── index.html         # Главная страница
