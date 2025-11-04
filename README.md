@@ -74,6 +74,17 @@ docker build -t techlaunch-app .
 docker run -p 5000:5000 techlaunch-app
 ```
 
+### Docker-composе сборка
+
+```bash
+git clone <repository-url>
+
+cd ctf-4
+
+docker-compose up -d 
+
+```
+
 Приложение будет доступно по адресу: `http://localhost:5000`
 
 ## 📁 Структура проекта
